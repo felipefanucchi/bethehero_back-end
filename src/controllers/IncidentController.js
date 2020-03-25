@@ -16,7 +16,7 @@ module.exports = {
       ));
 
     if (!ong || !ong.id) {
-      return response.status(401).json({
+      return response.status(400).json({
         error: 'Invalid user.',
       });
     }
