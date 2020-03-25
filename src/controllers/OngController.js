@@ -15,7 +15,7 @@ module.exports = {
       uf,
     })
     .catch(err => (
-      response.status(401).json({
+      response.status(400).json({
         error: 'User already registered.',
       })
     ));

@@ -10,8 +10,8 @@ module.exports = {
       .select('id')
       .first()
       .catch(err => (
-        response.status(401).json({
-          error: 'Invalid user.',
+        response.status(400).json({
+          error: 'User not found.',
         })
       ));
 
