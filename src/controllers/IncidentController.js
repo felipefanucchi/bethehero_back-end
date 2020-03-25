@@ -5,14 +5,12 @@ module.exports = {
     const { title, description, value } = request.body;
     const ong_id = request.headers.authorization;
 
-    const user = connection('ongs')
+    const ong = connection('ongs')
       .where('id', ong_id)
       .select('id')
       .first();
 
-    console.log(ong_id, user)
-
-    if (!ong_id || !user.id) {
+    if (!ong_id || !ong.id) {
       return response.status(401).json({
         error: 'User not valid.',
       });
