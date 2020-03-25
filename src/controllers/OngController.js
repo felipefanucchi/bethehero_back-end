@@ -13,7 +13,12 @@ module.exports = {
       whatsapp,
       city,
       uf,
-    });
+    })
+    .catch(err => (
+      response.status(401).json({
+        error: 'User already registered.',
+      })
+    ));
   
     return response.json({ id });
   },
