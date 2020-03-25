@@ -8,11 +8,14 @@ module.exports = {
     const ong = await connection('ongs')
       .where('id', ong_id)
       .select('id')
-      .first();
+      .first()
+      .catch(err => (
+        response.status(401).json({
+          error: 'Invalid user.',
+        })
+      ));
 
-    console.log(ong);
-
-    if (!ong || !ong.id || !ong_id) {
+    if (!ong || !ong.id) {
       return response.status(401).json({
         error: 'Invalid user.',
       });
