@@ -48,6 +48,8 @@ module.exports = {
         'ongs.uf'
       ]);
 
+    console.log(count);
+
     const items = {
       items: incidents,
       total: count['count(`id)']
