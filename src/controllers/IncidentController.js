@@ -23,6 +23,13 @@ module.exports = {
 
     const price = parseFloat(value);
 
+    console.log({
+      title,
+      description,
+      value: price,
+      ong_id
+    });
+
     const [id] = await connection('incidents').insert({
       title,
       description,
