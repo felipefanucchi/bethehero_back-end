@@ -23,14 +23,14 @@ module.exports = {
 
     console.log(value);
 
-    const [ id ] = await connection('incidents').insert({
+    await connection('incidents').insert({
       title,
       description,
       value,
       ong_id
-    }).first();
+    })
 
-    return response.json({ id });
+    return response.status(204).json({});
   },
   async index(request, response) {
     const { page = 1 } = request.query;
