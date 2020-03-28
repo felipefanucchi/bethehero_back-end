@@ -21,7 +21,9 @@ module.exports = {
       });
     }
 
-    const [id] = await connection('incidents').insert({
+    console.log(value);
+
+    const [ id ] = await connection('incidents').insert({
       title,
       description,
       value,
