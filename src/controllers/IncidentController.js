@@ -33,7 +33,7 @@ module.exports = {
   async index(request, response) {
     const { page = 1 } = request.query;
 
-    const [count] = await connection('incidents').count('id');
+    const [count] = await connection('incidents').count();
 
     const incidents = await connection('incidents')
       .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
@@ -47,10 +47,13 @@ module.exports = {
         'ongs.city',
         'ongs.uf'
       ]);
-    
-    response.header('X-Total-Count', count['count(`id`)']);
 
-    return response.json(incidents);
+    const items = {
+      items: incidents,
+      total: count['count(*)']
+    };
+
+    return response.json(items);
   },
   async delete(request, response) {
     const { id } = request.params;
