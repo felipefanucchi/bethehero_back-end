@@ -1,5 +1,5 @@
 // Update with your config settings.
-const { NODE_ENV } = process.env;
+const { NODE_ENV } = process.env || 'development';
 const knex = {
   development: {
     client: 'sqlite3',
