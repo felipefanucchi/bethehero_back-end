@@ -28,7 +28,7 @@ module.exports = {
       description,
       value,
       ong_id
-    });
+    }).first();
 
     return response.json({ id });
   },
