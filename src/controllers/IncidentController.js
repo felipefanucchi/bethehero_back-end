@@ -21,10 +21,12 @@ module.exports = {
       });
     }
 
+    const price = parseFloat(value);
+
     const [id] = await connection('incidents').insert({
       title,
       description,
-      toFixed(value),
+      price,
       ong_id
     });
 
