@@ -1,15 +1,14 @@
 // Update with your config settings.
-const { NODE_ENV } = process.env || 'development';
 const knex = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './src/database/db.sqlite'
-    },
+      filename: __dirname+ '/src/database/db.sqlite'
+    },  
+    useNullAsDefault: true,
     migrations: {
-      directory: './src/database/migrations'
+      directory: __dirname+ '/src/database/migrations'
     },
-    useNullAsDefault: true
   },
 
   staging: {
@@ -34,7 +33,6 @@ const knex = {
     migrations: {
       directory: __dirname+ '/src/database/migrations'
     },
-    useNullAsDefault: true,
     pool: {
       min: 2,
       max: 10
@@ -42,4 +40,4 @@ const knex = {
   }
 };
 
-module.exports = knex[NODE_ENV];
+module.exports = knex;
