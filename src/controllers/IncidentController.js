@@ -20,9 +20,7 @@ module.exports = {
         error: 'Invalid user.',
       });
     }
-
-    console.log(value);
-
+    
     await connection('incidents').insert({
       title,
       description,
@@ -30,7 +28,7 @@ module.exports = {
       ong_id
     })
 
-    return response.status(204).json({});
+    return response.status(204).json();
   },
   async index(request, response) {
     const { page = 1 } = request.query;
