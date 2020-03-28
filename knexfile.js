@@ -1,14 +1,13 @@
 // Update with your config settings.
-
-module.exports = {
-
+const { NODE_ENV } = process.env;
+const knex = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: __dirname+ '/src/database/db.sqlite'
+      filename: './src/database/db.sqlite'
     },
     migrations: {
-      directory: __dirname+ '/src/database/migrations'
+      directory: './src/database/migrations'
     },
     useNullAsDefault: true
   },
@@ -41,5 +40,6 @@ module.exports = {
       max: 10
     },
   }
-
 };
+
+module.exports = knex[NODE_ENV];
