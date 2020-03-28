@@ -21,7 +21,7 @@ module.exports = {
       });
     }
 
-    const price = parseFloat(value);
+    const price = parseFloat(value).toFixed(2);
 
     console.log({
       title,
